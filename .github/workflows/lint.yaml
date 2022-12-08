@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Install modules
-      run: yarn
+      run: yarn --non-interactive --silent --ignore-scripts --production=false &&
     - name: Run ESLint
       run : ls -la node_modules
     #   run: eslint . --ext .js -c .eslintrc.js --fix #To display output on console
