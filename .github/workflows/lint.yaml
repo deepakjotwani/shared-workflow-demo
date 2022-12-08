@@ -8,6 +8,4 @@ jobs:
     - name: Install modules
       run: npm install -g eslint
     - name: Run ESLint
-      run: eslint . --ext .js --fix #To display output on console
-    - name: Generate Report
-      run: eslint . --ext .js --fix -f checkstyle > eslint.xml #To create report which will be use by checkstyle plugin
+      run: eslint . --ext .js #To display output on console
