@@ -5,7 +5,9 @@ jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
-    - name: Run Eslint
+    - name: Install modules
       run: yarn
+    - name: Run ESLint
       run: yarn eslint . --ext .js -c .eslintrc.js --fix #To display output on console
+    - name: Generate Report
       run: yarn eslint . --ext .js -c .eslintrc.js --fix -f checkstyle > eslint.xml #To create report which will be use by checkstyle plugin
