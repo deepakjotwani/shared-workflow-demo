@@ -9,9 +9,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-    - name: Install Eslint
-      run: npm init @eslint/config
     - name: Run ESLint
-      run: eslint . --ext .js -c .eslintrc.js --fix #To display output on console
+      run: yarn eslint . --ext .js -c .eslintrc.js --fix #To display output on console
     - name: Generate Report
-      run: eslint . --ext .js -c .eslintrc.js --fix -f checkstyle > eslint.xml #To create report which will be use by checkstyle plugin
+      run: yarn eslint . --ext .js -c .eslintrc.js --fix -f checkstyle > eslint.xml #To create report which will be use by checkstyle plugin
