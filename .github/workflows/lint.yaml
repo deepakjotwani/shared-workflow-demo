@@ -10,7 +10,7 @@ jobs:
       with:
         node-version: 16
     - name: Install Eslint
-      run: npm init @eslint/config
+      run: npm init
     - name: Run ESLint
       run: eslint . --ext .js -c .eslintrc.js --fix #To display output on console
     - name: Generate Report
