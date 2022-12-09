@@ -10,8 +10,8 @@ jobs:
       with:
         node-version: 16
     - name: Install modules
-      run: yarn #npm install -g eslint
+      run: yarn
     - name: Run ESLint
-      run: yarn run eslint . --ext .js --fix #To display output on console
+      run: yarn run eslint . --ext .js -c .eslintrc.js --fix #To display output on console
     - name: Generate Report
-      run: yarn run eslint . --ext .js --fix -f checkstyle > eslint.xml #To create report which will be use by checkstyle plugin
+      run: yarn run eslint . --ext .js -c .eslintrc.js --fix -f checkstyle > eslint.xml #To create report which will be use by checkstyle plugin
