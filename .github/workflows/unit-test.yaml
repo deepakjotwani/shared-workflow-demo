@@ -1,0 +1,13 @@
+name: Unit Test
+on:
+  workflow_call
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: Running unit test
+      run: npm run coverage
