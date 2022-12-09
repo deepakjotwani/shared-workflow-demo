@@ -10,6 +10,6 @@ jobs:
       with:
         node-version: 16
     - name: Install Modules
-      run: npm install  
+      run: npm install mocha
     - name: Running unit test
       run: npm run coverage
