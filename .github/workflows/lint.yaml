@@ -6,10 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 12.8.3
     - name: Install modules
       run: npm install -g eslint
-    - name: Run NPM init
-      run: npm init
     - name: Npm init with eslint
       run: npm init @eslint/config
     - name: Run ESLint
