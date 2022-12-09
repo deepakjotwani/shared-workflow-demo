@@ -9,7 +9,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-    - uses: Install Modules
+    - name: Install Modules
       run: npm install  
     - name: Running unit test
       run: npm run coverage
