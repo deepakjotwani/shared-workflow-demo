@@ -1,0 +1,37 @@
+---
+name: Shared Workflow for actionsa
+on :
+  workflow_call:
+    inputs:
+      run_lint:
+        required: true
+        type: string
+      run_unit:
+        required: true
+        type: string
+      run_docker:
+        required: true
+        type: string
+    secrets:
+          registry_username:
+            required: true
+          registry_password:
+            required: true
+jobs:
+  shared-library-workflows-lint:
+    if: ${{ inputs.run_lint == 'true' }}
+    uses: deepakjotwani/shared-workflow-demo/.github/workflows/actions/lint.yaml@main
+  shared-library-workflows-unit-test:
+    if: ${{ inputs.run_unit == 'true' }}
+    needs: shared-library-workflows-lint
+    uses: deepakjotwani/shared-workflow-demo/.github/workflows/actions/unit-test.yaml@main
+  shared-library-workflows-docker:
+    if: ${{ inputs.run_docker == 'true' }}
+    needs: shared-library-workflows-unit-test
+    uses: deepakjotwani/shared-workflow-demo/.github/workflows/actions/docker-build-push.yaml@main
+    with:
+      image_name: demo-app
+      tag: v1
+    secrets:
+      registry_username: ${{secrets.registry_username}}
+      registry_password: ${{secrets.registry_password}}
