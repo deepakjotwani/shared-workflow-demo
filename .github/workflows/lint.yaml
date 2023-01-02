@@ -6,8 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: node:16
-      volumes:
-        - ${{ github.workspace }}:/
     steps:
     - uses: actions/checkout@v3
     - name: Install modules
