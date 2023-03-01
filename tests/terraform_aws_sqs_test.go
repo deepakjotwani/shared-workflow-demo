@@ -10,8 +10,10 @@ func TestSQS(t *testing.T) {
     terraformOptions := &terraform.Options{
         TerraformDir: "../AWS/SQS",
         Vars: map[string]interface{}{
-            "name": ["test-sqs"],
-            "tags": {CreatedBy : "terratest"},
+            "name": []string{"test-sqs", "value2", "value3"},
+            "tags": map[string]string{
+				"CreatedBy": "Terratest",
+			},
         },
     }
     // Run terraform init and terraform plan
