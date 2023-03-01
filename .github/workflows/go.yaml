@@ -14,10 +14,14 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.20
+          go-version: 1.18
       - name: Install Terraform
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: "1.1.0"
-      - name: Check go version
-        run: go version
+      - name: Install Terratest
+        run: go get -u github.com/gruntwork-io/terratest/modules/terraform  
+      - name: Run Terratest
+        run: |
+          cd tests
+          go test -v
